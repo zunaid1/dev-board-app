@@ -18,18 +18,21 @@
 		<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="style.css">
 		<script src="https://cdn.tailwindcss.com"></script>
+
+
+		<link rel="stylesheet" href="style.css">
 	
 </head>
-<body class="bg-blue-100">
+<body class="bg-gray-100">
 <header>
-	<nav class="flex justify-between items-center mx-auto w-11/12 border py-2 bg-white">
-		<div>
-			<img class="w-9 h-9 inline" src="./assets/logo.png" alt="">
+	<nav class="flex justify-between items-center mx-auto w-11/12 border py-2 bg-white flex-col md:flex-row lg:flex-row my-3">
+		<div class="flex justify-center items-center">
+			<img class="w-9 h-9 inline mr-2" src="./assets/logo.png" alt="">
 			<h1 class="inline">Dev<span class="font-bold">Board</span></h1>
 		</div>
-		<div class="flex justify-between items-center">
+		<div class="flex justify-between items-center mt-5 md:mt-0 lg:mt-0">
 			<img class="w-7 h-7 mr-2" src="./assets/checkbox.png" alt="">
-			<h1 class="mr-6">23</h1>
+			<h1 class="mr-6 font-bold">23</h1>
 			<img class="w-8 h-8" src="./assets/theme-btn.png" alt="">
 
 		</div>
@@ -37,57 +40,99 @@
 </header>
 
 
-<main class="mx-auto w-11/12">
-	<section class="flex w-full">
+<main class="mx-auto w-11/12 bg-white">
+	<section class="flex flex-col md:flex-row lg:flex-row w-full">
 
 
 		<!-- left section  -->
-		<section class="w-[70%]  p-4">
+		<section class="sm:w-full md:w-full  lg:w-[70%]  p-4">
 			<!-- main content summary section START -->
-			<section class="flex w-full gap-4"> 
-				<div class="flex w-[25%] bg-slate-400">
-					<img class="inline mr-3" src="./assets/checkbox.png" alt="">
-					<div class="flex ">
-						<h1 class="">Total Assign</h1>
-						<h1 class="">6</h1>
+			<section class="flex flex-col lg:flex-row w-full gap-4"> 
+				<!-- card----01 -->
+				<div class="task-assign-sum-box flex justify-center items-center sm:flex-col lg:flex-row sm:w-full md:w-full lg:w-[25%] bg-[#F4F7FF] py-3 rounded">
+					<img class="w-8 h-8 inline mr-3" src="./assets/checkbox.png" alt="">
+					<div class="">
+						<h1 class="">Task Assigned</h1>
+						<h1 class="font-bold">06</h1>
 					</div>
 				</div>
 
-				<div class="w-[50%] bg-blue-300">
-					<img class="inline mr-3" src="./assets/checkbox.png" alt="">
-					<h1 class="inline">6</h1>
+
+				<!-- card----02 -->
+				<div class="blog-box flex justify-center items-center w-full md:w-full lg:w-[50%] rounded p-1 text-2xl text-white py-3">
+					<img class="w-8 h-8 inline mr-3" src="./assets/board.png" alt="">
+					<h1 class="inline"><a href="#">Discover Something <br> New Today!</a></h1>
 				</div>
 
-				<div class="w-[25%] bg-red-300">
-					<img class="inline mr-3" src="./assets/checkbox.png" alt="">
-					<h1 class="inline">6</h1>
+
+				<!-- card----03 -->
+				<div class="date-box flex justify-center items-center w-full md:w-full lg:w-[25%] bg-[#F4F7FF] py-3 rounded">
+					<img class="w-8 h-8 inline mr-3" src="./assets/calender.png" alt="">
+					<div class="">
+						<h1 id="currentDate" class=""></h1>
+					</div>
 				</div>
 			</section>
 			<!-- main content summary section END -->
 			
-			
-			70% Width
-		
-		
-		
+
+			<!-- Card---container START-->
+			 <section id="task-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full my-5">
+
+				<!-- Task---card-START--->
+				<!-- <div class="task-card bg-blue-50 rounded p-3">
+					<p class="bg-white rounded w-[40%] p-2 text-center">ShopEase</p>
+					<h1 class="task-card-title font-bold my-2">Fix Mobile Button Issue </h1>
+					<p class="task-card-desc bg-white rounded p-2">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly</p>
+					<div class="task-card-footer flex justify-between my-3">
+						<div class="task-card-footer-text">
+						<p>Deadline</p>
+						<p class="task-footer-deadline font-bold">21 March 2025</p>
+						</div>
+						<button class="btn btn-primary">Completed</button>
+					</div>
+
+				</div> -->
+				<!-- Task---card-END--->
+
+
+			 </section>
+			<!-- Card---container END-->
+
+
+
+
 		<!-- right section -->
 		</section>
-		<div class="w-[30%] bg-green-500 text-white p-4">30% Width</div>
+
+		<div class="w-full lg:w-[30%] bg-green-500 text-white p-4">30% Width</div>
 	  </section>
 	
+
+	 
+	  
+
+
 </main>
 
 
 
-  
+
+	<script src="./js/task.js"></script>
+
+    <script>
+        // Get current date
+        let today = new Date();
+
+        // Format the date
+        let options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+        let formattedDate = today.toLocaleDateString('en-US', options).replace(',', '');
+
+        // Display the date
+        document.getElementById("currentDate").textContent = formattedDate;
+    </script>
 
 
-
-
-	<script src="./scripts/addMoney.js"> </script>
-	<script src="./scripts/toggle.js"> </script>
-	<script src="./scripts/cashout.js"></script>
-	<script src="./scripts/utilities.js"></script>
 
 </body>
 </html>

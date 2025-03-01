@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dev Board</title>
+
+		<!-- Split Type JS -->
+		<script src="https://unpkg.com/split-type"> </script>
+
+		<!-- font awsome cdn -->
+		<script src="https://kit.fontawesome.com/c53d808e7d.js" crossorigin="anonymous"></script>
+	
+		<!-- Tailwind cdn -->
+		<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+	
+		<!-- Daisy CDN -->
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="style.css">
+		<script src="https://cdn.tailwindcss.com"></script>
+
+
+		<link rel="stylesheet" href="style.css">
+	
+</head>
+<body class="bg-gray-100">
+
+
+
+<main class="mx-auto w-11/12 bg-white">
+	<section class="flex flex-col md:flex-row lg:flex-row w-full">
+
+
+		<!-- left section  -->
+		<section class="sm:w-full md:w-full  lg:w-[70%]  p-4">
+	 
+
+			<!-- Card---container START-->
+			 <section id="task-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full my-5">
+
+				<!-- card---01 -->
+				<div class="task-card bg-blue-50 rounded p-3">
+					<div class="flex justify-between items-center text-center">
+						<p class="bg-white rounded w-[40%] p-2 text-center">ShopEase</p>
+						<div class="flex justify-center items-center p-3 bg-blue-500 w-9 h-9 text-center font-bold text-white rounded-[50%] text-[16px]">
+							<p class="text-center">101</p>
+						</div>
+					</div>
+					<h1 class="task-card-title font-bold my-2">Fix Mobile Button Issue </h1>
+					<p class="task-card-desc bg-white rounded p-2">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly</p>
+					<div class="task-card-footer flex justify-between my-3">
+						<div class="task-card-footer-text">
+						<p>Deadline</p>
+						<p class="task-footer-deadline font-bold">21 March 2025</p>
+						</div>
+						<button class="btn btn-primary">Completed</button>
+					</div>
+
+				</div>
+
+
+			 </section>
+			<!-- Card---container END-->
+
+
+
+
+		<!-- right section -->
+		</section>
+
+	  </section>
+	
+
+	 
+	  
+
+
+</main>
+
+
+
+</body>
+</html>

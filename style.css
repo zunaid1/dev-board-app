@@ -1,0 +1,14 @@
+.task-assign-sum-box{
+	/* display: flex;
+	align-items: center;
+	justify-content: center;
+	background: ; */
+}
+
+
+.blog-box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to bottom right, #3752FD, #9BA8F8);
+}
