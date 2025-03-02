@@ -23,7 +23,7 @@
 		<link rel="stylesheet" href="style.css">
 	
 </head>
-<body class="bg-blue-100">
+<body class="bg-blue-100 h-screen">
 	<header>
 		<nav
 			class="rounded flex justify-between items-center mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3">
@@ -32,7 +32,7 @@
 				<h1 class="inline">Dev<span class="font-bold">Board</span></h1>
 			</div>
 			<div class="flex justify-between items-center mt-5 md:mt-0 lg:mt-0">
-				<button id="btn-back-to-desk" class="btn btn-primary"><i class="fa-solid fa-arrow-left-long"></i> Back
+				<button id="btn-back-to-desk" class="btn btn-primary text-white"><i class="fa-solid fa-arrow-left-long"></i> Back
 					to
 					Desk</button>
 
@@ -45,49 +45,62 @@
 		<h1 class="text-center font-bold">Blogs</h1>
 		<section class="blog-card-wrapper">
 			<!-- Question-1 -->
-			<div class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3">
-				<h2 class="font-bold">Question-1: What are the different ways to select an element in the DOM?
+			<div
+				class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3 hover:bg-orange-50">
+				<h2 class="font-bold">What are the different ways to select an element in the DOM?
 				</h2>
 
 				<hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
-				<p class="text-gray-500 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Qui quod, quidem quas illo dolor in culpa cumque quisquam autem. Nesciunt.</p>
+				<p class="text-gray-500 dark:text-gray-400">
+					There are multiple ways to select an element in the DOM in JavaScript. Here are the most common methods. some of
+					them is, <span class="font-bold">By ID</span>–getElementById("id"), <span class="font-bold">By
+						Class</span>–getElementsByClassName("class"), <span class="font-bold">By Tag
+						Name</span>–getElementsByTagName("tag"), <span class="font-bold">By Query Selector</span>–
+					querySelector("selector"), <span class="font-bold">By Query Selector All</span> – querySelectorAll("selector"),
+				</p>
 			</div>
 
 
 			<!-- Question-2 -->
-			<div class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3">
-				<h2 class="font-bold">Question-2: What is the difference between innerHTML, innerText, and textContent?
+			<div
+				class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3 hover:bg-orange-50">
+				<h2 class="font-bold">What is the difference between innerHTML, innerText, and textContent?
 				</h2>
 				<hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
-				<p class="text-gray-500 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Qui quod, quidem quas illo dolor in culpa cumque quisquam autem. Nesciunt.</p>
+				<p class="text-gray-500 dark:text-gray-400">
+					The difference between innerHTML, innerText, and textContent is how they handle content. <span class="font-bold">innerHTML changes or gets HTML content</span> but can be unsafe. <span class="font-bold">innerText gets only visible text</span> and may slow down the page. <span class="font-bold">textContent gets all text, even hidden text,</span> and is the fastest option.
+				</p>
 			</div>
 			<!-- Question-3 -->
-			<div class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3">
-				<h2 class="font-bold">Question-3: What is event delegation in the DOM?
+			<div
+				class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3 hover:bg-orange-50">
+				<h2 class="font-bold">What is event delegation in the DOM?
 				</h2>
 				<hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
-				<p class="text-gray-500 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Qui quod, quidem quas illo dolor in culpa cumque quisquam autem. Nesciunt.</p>
+				<p class="text-gray-500 dark:text-gray-400">
+					Event delegation is a technique where a parent element handles events for its child elements using event bubbling. Instead of adding event listeners to each child, we add one listener to the parent and check which child was clicked. This makes the code simpler, faster, and useful for dynamic elements
+				</p>
 			</div>
 			<!-- Question-4 -->
-			<div class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3">
-				<h2 class="font-bold">Question-4: What is event bubbling in the DOM?</h2>
+			<div
+				class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3 hover:bg-orange-50">
+				<h2 class="font-bold">What is event bubbling in the DOM?</h2>
 				<hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
-				<p class="text-gray-500 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Qui quod, quidem quas illo dolor in culpa cumque quisquam autem. Nesciunt.</p>
+				<p class="text-gray-500 dark:text-gray-400">
+					Event bubbling is a process in the DOM where an event starts from the target element and then bubbles up through its parent elements. When an event occurs, it first triggers on the element that was clicked or interacted with, and then it moves up to the parent elements, calling any event listeners attached to them. 
+				</p>
 			</div>
 			<!-- Question-5 -->
-			<div class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3">
-				<h2 class="font-bold">Question-5: How do you create, add, and remove elements using JavaScript?</h2>
+			<div
+				class="rounded  mx-auto w-11/12 border py-2 px-3 bg-white flex-col md:flex-row lg:flex-row my-3 hover:bg-orange-50">
+				<h2 class="font-bold">How do you create, add, and remove elements using JavaScript?</h2>
 				<hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
-				<p class="text-gray-500 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Qui quod, quidem quas illo dolor in culpa cumque quisquam autem. Nesciunt.</p>
+				<p class="text-gray-500 dark:text-gray-400">
+					To create an element in JavaScript, use document.createElement(). To add it to the page, use appendChild() or insertBefore() on a parent element. To remove it, use removeChild() on the parent.
+				</p>
 			</div>
 
-
-
+ 
 
 
 		</section>

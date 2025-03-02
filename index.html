@@ -142,11 +142,36 @@
 	<script src="./js/randomColor.js"></script>
 
     <script>
-		//Date
-		let today = new Date();
-        let options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-		let formattedDate = today.toLocaleDateString('en-US', options).replace(',', '');
-        document.getElementById("currentDate").textContent = formattedDate;
+
+			function updateDate() {
+            let now = new Date();
+			let options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+
+            let formattedDate = now.toLocaleString('en-US', options).replace(',', ''); // Formats date and time
+            document.getElementById("currentDate").innerText = formattedDate;
+        }
+
+        updateDate(); // Call once initially
+        setInterval(updateDate, 1000); // Update every second
+
+
+
+
+    //     function updateDate() {
+    //         let today = updateDate();
+    //     let options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+	// 	let formattedDate = today.toLocaleDateString('en-US', options).replace(',', '');
+	// 	document.getElementById("currentDate").textContent = formattedDate;
+	// }
+
+	// 	updateDate(); // Call once initially
+    //     setInterval(updateDate, 1000); // Update every second
+
+
+
+		
+
+        //document.getElementById("currentDate").textContent = currentDate;
 
 	//Go to blog page--------------blog-box
 	document.getElementById('blog-box').addEventListener('click', function () {

@@ -3,60 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Board: Blog</title>
+    <title>Auto Update Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #time {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+    </head>
+<body>
+    <h2>Current Time:</h2>
+    <p id="clock"></p>
+    <button onclick="showTime" id="myBtn">Click Me</button>
 
-        <!-- Split Type JS -->
-        <script src="https://unpkg.com/split-type"> </script>
-
-        <!-- font awsome cdn -->
-        <script src="https://kit.fontawesome.com/c53d808e7d.js" crossorigin="anonymous"></script>
-        <!-- Tailwind cdn -->
-        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-        
-        <!-- Daisy CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-        
-        
-        <link rel="stylesheet" href="style.css">
-        
-        <style>
-            #cardContainer {
-                display: flex;
-                gap: 10px;
-                margin-bottom: 10px;
-            }
-
-            .card {
-            padding: 20px;
-            background-color: lightblue;
-            border-radius: 5px;
-            }
-
-        </style>
-        </head>
-        
-        <body>
-        
-        
-            <div id="cardContainer">
-                <div class="card">Card 1</div>
-                <div class="card">Card 2</div>
-                <div class="card">Card 3</div>
-            </div>
-            <button onclick="removeCards()">Remove All Cards</button>
-
-
-
-            <script>
-function removeCards() {
-    const container = document.getElementById("cardContainer");
-    container.innerHTML = ""; // Removes all cards
+    <script>
+function showTime(){
+    let timesss = getCurrentTime();
+    alert(timesss);
 }
 
 
+function getCurrentTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+    
+    return `${hours % 12 || 12}:${minutes}:${seconds} ${ampm}`;
+}
 
-            </script>
+// Function to update and log the time continuously
+function updateTime() {
+    updatedTime = getCurrentTime();
+    console.log(updatedTime);  // Logging to see if it's updating
+}
+
+let updatedTime = getCurrentTime();
+console.log(updatedTime);  // Initial log
+
+setInterval(updateTime, 1000); // Calls updateTime every second
+
+        
+document.getElementById("clock").innerText = updatedTime;
+
+
+</script>
 </body>
 </html>
