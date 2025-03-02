@@ -1,3 +1,18 @@
+function getCurrentTime(){
+	const now = new Date();
+	const hours = now.getHours();
+	const minutes = now.getMinutes().toString().padStart(2, "0");
+	const seconds = now.getSeconds().toString().padStart(2, "0");
+	const ampm = hours >= 12 ? "PM" : "AM";
+	
+	const formattedTime = `${hours % 12 || 12}:${minutes}:${seconds} ${ampm}`;
+	//console.log(formattedTime);
+	return formattedTime;
+}
+
+
+
+
 
 
 const taskList = [
@@ -86,6 +101,7 @@ const taskList = [
 ]
 
         let cardContainer = document.getElementById("task-card-container");
+        let activityCardContainer = document.getElementById("activity-card-container");
 
         for (let i = 0; i < taskList.length; i++) {
             let task = taskList[i];
@@ -113,15 +129,22 @@ const taskList = [
 					</div>
             `;
 
+			let activityCard= document.createElement("div");
+			activityCard.className= "activity-card rounded bg-[#F4F7FF] p-3 text-black";
+			activityCard.innerHTML = `
+			 	<div id="log-id" class="activity-card rounded bg-[#F4F7FF] p-3 text-black">
+				<p>You have Complete The Task <span class="font-bold">${task.taskName}</span> at ${getCurrentTime()}</span> </p>
+				</div> `
+
+
 
 			         // Step 4: Add event listener to the "Add" button
 					 let addButton = card.querySelector(`#btnCompleted-${task.id}`); // Select the specific "Add" button
 					 addButton.addEventListener('click', function() {
 						 // Disable the "Add" button after it is clicked
 						 addButton.disabled = true;
-						 addButton.innerText = "Finish"; // Change the button text to "Added"
 						 addButton.classList.add("bg-gray-500", "hover:bg-gray-500"); // Add some styling to indicate it's disabled
-						 alert('You added: ' + task.taskName);
+						 alert('Board updated Successfully');
 						 let previousAssignedTask = document.getElementById("assigned-task").innerText;
 						document.getElementById("assigned-task").innerText = previousAssignedTask - 1;
 
@@ -129,6 +152,9 @@ const taskList = [
 						let previousCompletedTaskValue = document.getElementById("completed-task").innerText;
 						document.getElementById("completed-task").innerText = parseInt(previousCompletedTaskValue) + 1;
 
+
+						//Activity Card Append to Activity Container
+						activityCardContainer.appendChild(activityCard);
 						//completed-task
 					 });
 		 
@@ -139,6 +165,8 @@ const taskList = [
 
             // Add the card to the container
             cardContainer.appendChild(card);
+			
+			
         }
 
 

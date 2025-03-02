@@ -40,12 +40,12 @@
 </header>
 
 
-<main class="mx-auto w-11/12 bg-white">
-	<section class="flex flex-col md:flex-row lg:flex-row w-full">
+<main class="mx-auto w-11/12 ">
+	<section class="flex flex-col md:flex-row lg:flex-row w-full bg-transparent">
 
 
 		<!-- left section  -->
-		<section class="sm:w-full md:w-full  lg:w-[70%]  p-4">
+		<section class="rounded  sm:w-full md:w-full  lg:w-[70%]  p-4 bg-white">
 			<!-- main content summary section START -->
 			<section class="flex flex-col lg:flex-row w-full gap-4"> 
 				<!-- card----01 -->
@@ -59,9 +59,10 @@
 
 
 				<!-- card----02 -->
-				<div class="blog-box flex justify-center items-center w-full md:w-full lg:w-[50%] rounded p-1 text-2xl text-white py-3">
-					<img class="w-8 h-8 inline mr-3" src="./assets/board.png" alt="">
-					<h1 class="inline"><a href="#">Discover Something <br> New Today!</a></h1>
+				<div id="blog-box"
+					class="blog-box flex justify-between items-center w-full md:w-full lg:w-[50%] rounded p-1 text-2xl text-white py-3">
+					<img class="w-[30%] p-3 ml-2 inline mr-3" src="./assets/board.png" alt="">
+					<h1 class="w-[70%] inline font-semibold"><a href="#">Discover Something <br> New Today!</a></h1>
 				</div>
 
 
@@ -105,8 +106,27 @@
 		<!-- right section -->
 		</section>
 
-		<div class="w-full lg:w-[30%] bg-green-500 text-white p-4">30% Width</div>
-	  </section>
+<!-- Right section -->
+<section class="flex flex-col items-center  rounded border w-full lg:w-[30%] bg-white p-4 mt-3 md:mt-0 lg:mt-0">
+	<div class="flex justify-center items-center space-x-2">
+		<img class="inline" src="./assets/activity.png" alt="">
+		<h3 class="inline text-black text-xl">Activity Log</h3>
+	</div>
+	<button id="btn-clear-history" class="btn btn-primary w-[150px] my-4">Clear History</button>
+
+	<!-- Activity Card Container  START-->
+	<div id="activity-card-container" class="flex  flex-col items-center gap-5 w-full">
+
+		<!-- <div id="log-id" class="activity-card rounded bg-[#F4F7FF] p-3 text-black">
+		<p>You have Complete The Task <span class="font-bold">Add Dark Mode</span> at 12:48:15 PM</span> </p>
+	</div>-->
+	</div>
+	<!----- Activity Card Container  END----->
+
+
+
+<!-- </section>
+	  </section> -->
 	
 
 	 
@@ -122,15 +142,29 @@
 	<script src="./js/randomColor.js"></script>
 
     <script>
-        // Get current date
-        let today = new Date();
-
-        // Format the date
+		//Date
+		let today = new Date();
         let options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-        let formattedDate = today.toLocaleDateString('en-US', options).replace(',', '');
-
-        // Display the date
+		let formattedDate = today.toLocaleDateString('en-US', options).replace(',', '');
         document.getElementById("currentDate").textContent = formattedDate;
+
+	//Go to blog page--------------blog-box
+	document.getElementById('blog-box').addEventListener('click', function () {
+		window.location.href = "./blog.html"
+	})
+
+
+	//activity-card-container
+	document.getElementById('btn-clear-history').addEventListener('click', function(){
+	const activityCardContainer = document.getElementById('activity-card-container');
+	activityCardContainer.innerHTML="";
+
+
+
+	})
+ 
+
+
     </script>
 
 

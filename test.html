@@ -3,31 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Color Background</title>
-</head>
-<body>
+    <title>Dev Board: Blog</title>
 
-    <h1>Click the button to change background color!</h1>
-    <button onclick="changeBackgroundColor()">Change Background Color</button>
+        <!-- Split Type JS -->
+        <script src="https://unpkg.com/split-type"> </script>
 
-    <script>
-        // Function to generate a random color
-        function getRandomColor() {
-            // Generate random values for Red, Green, and Blue
-            let r = Math.floor(Math.random() * 256); // Random value between 0 and 255
-            let g = Math.floor(Math.random() * 256); // Random value between 0 and 255
-            let b = Math.floor(Math.random() * 256); // Random value between 0 and 255
+        <!-- font awsome cdn -->
+        <script src="https://kit.fontawesome.com/c53d808e7d.js" crossorigin="anonymous"></script>
+        <!-- Tailwind cdn -->
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        
+        <!-- Daisy CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        
+        <link rel="stylesheet" href="style.css">
+        
+        <style>
+            #cardContainer {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
 
-            // Return the color in RGB format
-            return `rgb(${r}, ${g}, ${b})`;
-        }
+            .card {
+            padding: 20px;
+            background-color: lightblue;
+            border-radius: 5px;
+            }
 
-        // Function to change the background color of the body
-        function changeBackgroundColor() {
-            // Set the body's background color to a random color
-            document.body.style.backgroundColor = getRandomColor();
-        }
-    </script>
+        </style>
+        </head>
+        
+        <body>
+        
+        
+            <div id="cardContainer">
+                <div class="card">Card 1</div>
+                <div class="card">Card 2</div>
+                <div class="card">Card 3</div>
+            </div>
+            <button onclick="removeCards()">Remove All Cards</button>
 
+
+
+            <script>
+function removeCards() {
+    const container = document.getElementById("cardContainer");
+    container.innerHTML = ""; // Removes all cards
+}
+
+
+
+            </script>
 </body>
 </html>
