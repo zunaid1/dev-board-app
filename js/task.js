@@ -1,74 +1,74 @@
-function getCurrentTime(){
+function getCurrentTime() {
 	const now = new Date();
 	const hours = now.getHours();
 	const minutes = now.getMinutes().toString().padStart(2, "0");
 	const seconds = now.getSeconds().toString().padStart(2, "0");
 	const ampm = hours >= 12 ? "PM" : "AM";
-	
-	return `${hours % 12 || 12}:${minutes}:${seconds} ${ampm}`;
+
+	const formattedTime = `${hours % 12 || 12}:${minutes}:${seconds} ${ampm}`;
 	//console.log(formattedTime);
-	//return currentTime;
+	return formattedTime;
 }
 
 
-let updatedTime = getCurrentTime();
-setInterval(getCurrentTime, 1000); 
+
+
 
 
 const taskList = [
 	{
-		id:"1",
-		clientName:"ShopEase",
-		taskName:"Fix Mobile Button Issue",
-		taskDesc:"Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly",
-		taskDeadline: "10 March 2025",
-		taskStatus:"onGoing"
+		id: "1",
+		clientName: "ShopEase",
+		taskName: "Fix Mobile Button Issue",
+		taskDesc: "Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly",
+		taskDeadline: "",
+		taskStatus: "onGoing"
 
 	},
 	{
-		id:"2",
-		clientName:"CloudSync",
-		taskName:"Add Dark Mode",
-		taskDesc:"Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
-		taskDeadline: "10 March 2025",
-		taskStatus:"onGoing"
+		id: "2",
+		clientName: "CloudSync",
+		taskName: "Add Dark Mode",
+		taskDesc: "Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
+		taskDeadline: "21 March 2025",
+		taskStatus: "onGoing"
 
 	},
 	{
-		id:"3",
-		clientName:"SwiftPay",
-		taskName:"Add Dark Mode",
-		taskDesc:"Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
-		taskDeadline: "11 March 2025",
-		taskStatus:"onGoing"
+		id: "3",
+		clientName: "SwiftPay",
+		taskName: "Add Caption",
+		taskDesc: "Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
+		taskDeadline: "21 March 2025",
+		taskStatus: "onGoing"
 
 	},
 
 	{
-		id:"4",
-		clientName:"ShopEase",
-		taskName:"Fix Mobile Button Issue",
-		taskDesc:"Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly",
-		taskDeadline: "19 March 2025",
-		taskStatus:"onGoing"
+		id: "4",
+		clientName: "ShopEase",
+		taskName: "Fix Mobile Button Issue",
+		taskDesc: "Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly",
+		taskDeadline: "",
+		taskStatus: "onGoing"
 
 	},
 	{
-		id:"5",
-		clientName:"CloudSync",
-		taskName:"Add Dark Mode",
-		taskDesc:"Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
-		taskDeadline: "18 March 2025",
-		taskStatus:"onGoing"
+		id: "5",
+		clientName: "CloudSync",
+		taskName: "Customize User Profile",
+		taskDesc: "Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
+		taskDeadline: "21 March 2025",
+		taskStatus: "onGoing"
 
 	},
 	{
-		id:"6",
-		clientName:"SwiftPay",
-		taskName:"Add Dark Mode",
-		taskDesc:"Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
-		taskDeadline: "25 March 2025",
-		taskStatus:"onGoing"
+		id: "6",
+		clientName: "SwiftPay",
+		taskName: "Update Store Info.",
+		taskDesc: "Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.",
+		taskDeadline: "21 March 2025",
+		taskStatus: "onGoing"
 
 	},
 	{
@@ -218,24 +218,20 @@ const taskList = [
 	taskDeadline: "27 March 2025",
 	taskStatus: "onGoing"
 }
-
+	
 ]
 
+let cardContainer = document.getElementById("task-card-container");
+let activityCardContainer = document.getElementById("activity-card-container");
 
+for (let i = 0; i < taskList.length; i++) {
+	let task = taskList[i];
 
+	let card = document.createElement("div");
+	card.className = "task-card bg-blue-50 rounded p-3";
+	card.setAttribute("data-index", task.id); // Set custom attribute for identifying the card
 
-
-        let cardContainer = document.getElementById("task-card-container");
-        let activityCardContainer = document.getElementById("activity-card-container");
-
-        for (let i = 0; i < taskList.length; i++) {
-            let task = taskList[i];
-
-            let card = document.createElement("div");
-            card.className = "task-card bg-blue-50 rounded p-3"; 
-			card.setAttribute("data-index", task.id); // Set custom attribute for identifying the card
-
-            card.innerHTML = `
+	card.innerHTML = `
 					<div class="flex justify-between items-center text-center">
 						<p class="bg-white rounded w-[40%] p-2 text-center">${task.clientName}</p>
 						<div class="flex justify-center items-center p-3 bg-blue-500 w-9 h-9 text-center font-bold text-white rounded-[50%] text-[16px]">
@@ -255,62 +251,63 @@ const taskList = [
             `;
 
 
-					 let addButton = card.querySelector(`#btnCompleted-${task.id}`); 
-					 addButton.addEventListener('click', function() {
+	// Step 4: Add event listener to the "Add" button
+	let addButton = card.querySelector(`#btnCompleted-${task.id}`); // Select the specific "Add" button
+
+	addButton.addEventListener('click', function () {
+		// Disable the "Completed" button
+		addButton.disabled = true;
+		addButton.classList.add("bg-gray-500", "hover:bg-gray-500");
+
+		alert('Board updated Successfully');
+
+		// Update task counters
+		let assignedTaskElem = document.getElementById("assigned-task");
+		let completedTaskElem = document.getElementById("completed-task");
+
+		assignedTaskElem.innerText = parseInt(assignedTaskElem.innerText) - 1;
+		let newCompletedCount = parseInt(completedTaskElem.innerText) + 1;
+		completedTaskElem.innerText = newCompletedCount;
+
+		// Add an activity log
+		let activityCard = document.createElement("div");
+		activityCard.className = "activity-card rounded bg-[#F4F7FF] p-3 text-black";
+		activityCard.innerHTML = `
+			<p>You have completed the task <span class="font-bold">${task.taskName}</span> at ${getCurrentTime()}</p>
+		`;
+		activityCardContainer.appendChild(activityCard);
+
+		// Check if all tasks are completed
+		if (newCompletedCount === taskList.length) {
+			setTimeout(() => {
+				alert("🎉 Congratulations! You have completed all tasks! 🎉");
+			}, 500);
+		}
+	});
 
 
 
 
-
-						 addButton.disabled = true;
-						 addButton.classList.add("bg-gray-500", "hover:bg-gray-500"); 
-						 alert('Board updated Successfully');
-						 let previousAssignedTask = document.getElementById("assigned-task").innerText;
-						document.getElementById("assigned-task").innerText = previousAssignedTask - 1;
+	// Add the card to the container
+	cardContainer.appendChild(card);
 
 
-						let previousCompletedTaskValue = document.getElementById("completed-task").innerText;
-						document.getElementById("completed-task").innerText = parseInt(previousCompletedTaskValue) + 1;
-
-
-
-
-						//=======Activity Card=================================
-					updatedTime = getCurrentTime();
-					let activityCard= document.createElement("div");
-					activityCard.className= "activity-card rounded bg-[#F4F7FF] p-3 text-black";
-					activityCard.innerHTML = `
-			 	<div id="log-id" class="activity-card rounded bg-[#F4F7FF] p-3 text-black">
-				<p>You have Complete The Task <span class="font-bold">${task.taskName}</span> at ${updatedTime}</span> </p>
-				</div> `
-						activityCardContainer.appendChild(activityCard);
-
-						if(parseInt(previousAssignedTask) === 0){
-							alert("Congrats!, You have completed All Task.");
-						}
-					 });
-		 
-					 
-            cardContainer.appendChild(card);
-			
-			
-        }
-
-
-		
-
-
-	
-        // // Step 1: Create an array
-        // let fruits = ["Apple", "Banana", "Orange", "Mango", {id:1, name:"zunaid"}, {id:1, name:"zunaid"}, {id:1, name:"zunaid"}, {id:1, name:"zunaid"}, {id:1, name:"zunaid"}];
+}
 
 
 
 
 
 
-		let length = taskList.length;
-		document.getElementById("assigned-task").innerText = length;
-		
-		
-		
+// // Step 1: Create an array
+// let fruits = ["Apple", "Banana", "Orange", "Mango", {id:1, name:"zunaid"}, {id:1, name:"zunaid"}, {id:1, name:"zunaid"}, {id:1, name:"zunaid"}, {id:1, name:"zunaid"}];
+
+
+
+
+
+
+let length = taskList.length;
+document.getElementById("assigned-task").innerText = length;
+
+
